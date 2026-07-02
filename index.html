@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="اكتشف HYDROJET X PRO. مسدس غسيل السيارات اللاسلكي الفاخر ببطاريتين 48V وضغط مياه جبار 240 لتر/ساعة. شحن مجاني في الإمارات والدفع عند الاستلام.">
+  <title>HYDROJET X PRO | الرفاهية والقوة في غسيل السيارات اللاسلكي</title>
+  
+  <!-- FontAwesome & Ionicons for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <!-- Premium Page Loader -->
+  <div class="premium-loader" id="page-loader">
+    <div class="loader-logo">HYDRO<span>JET</span></div>
+    <div class="loader-bar-container">
+      <div class="loader-bar"></div>
+    </div>
+  </div>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <span>🚚 توصيل مجاني وسريع لكافة إمارات الدولة للطلبات فوق 199 درهم | Free Shipping on Orders Above 199 AED</span>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">
+        <i class="fa-solid fa-droplet"></i>
+        HYDRO<span>JET</span>
+      </a>
+      <a href="#checkout-form-section" class="nav-cta">اطلب الحين</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <span class="section-label" style="margin-bottom: 20px;">DTC LUXURY CAR CARE</span>
+        <h1><span>نظافة مثالية.</span><br>بحرية لاسلكية مطلقة.</h1>
+        <p>اكتشف HYDROJET X PRO - مسدس غسيل السيارات اللاسلكي الأكثر قوة وفخامة. يمنحك ضخاً جباراً بقوة 48V وتدفق يصل إلى 240 لتر بالساعة في صندوق تخزين متين وفاخر يجمع كل الملحقات.</p>
+        
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 40px;">
+          <a href="#checkout-form-section" class="btn-premium btn-gold"><i class="fa-solid fa-lock" style="margin-left: 10px;"></i> احجز عرضك الحين</a>
+          <a href="#features" class="btn-premium" style="background-color: transparent; border: 1px solid var(--border-glass); color: var(--text-white);">اكتشف المميزات</a>
+        </div>
+
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>بطاريتين 48V مدمجة</span>
+          </div>
+          <div class="hero-meta-item">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>توصيل مجاني وسريع</span>
+          </div>
+          <div class="hero-meta-item">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>الدفع عند الاستلام نقداً</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="glow-ring"></div>
+        <img src="luxury_car_washer.png" alt="مسدس غسيل السيارات اللاسلكي الفاخر" class="floating-product">
+      </div>
+    </div>
+  </section>
+
+  <!-- Checkout Section (Order Form) -->
+  <section class="section section-dark reveal" id="checkout-form-section">
+    <div class="container">
+      <div class="order-form-container">
+        <h3 class="form-title">نموذج الطلب السريع والدفع عند الاستلام 🇦🇪</h3>
+        
+        <form id="luxuryOrderForm">
+          <!-- Hidden inputs for pricing state -->
+          <input type="hidden" id="selectedPackageId" value="double">
+          <input type="hidden" id="selectedPackageName" value="الحزمة المزدوجة - جهازين (المعززة)">
+          <input type="hidden" id="selectedPackagePrice" value="249">
+
+          <div class="form-grid">
+            <!-- Package Selection Inside Form -->
+            <div class="form-field-wrapper form-group-full">
+              <label class="input-label">العرض المختار (اضغط لتغيير العرض):</label>
+              <div class="form-packages-selector">
+                <div class="form-package-option" data-option-id="basic" onclick="selectPricing('basic', 149, 'الحزمة الأساسية (جهاز واحد + 2 بطارية)', false)">
+                  <div class="option-radio"></div>
+                  <div class="option-details">
+                    <span class="option-title">الحزمة الأساسية <small style="color: var(--text-muted); margin-right: 5px;">(جهاز + بطاريتين)</small></span>
+                    <span class="option-price english-num">149 AED</span>
+                  </div>
+                </div>
+                <div class="form-package-option active" data-option-id="double" onclick="selectPricing('double', 249, 'الحزمة المزدوجة - جهازين (المعززة)', false)">
+                  <div class="option-radio"></div>
+                  <div class="option-details">
+                    <span class="option-title">الحزمة المزدوجة <span class="option-badge">الأكثر مبيعاً وتوفيراً 🔥</span></span>
+                    <span class="option-price english-num">249 AED</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-field-wrapper">
+              <label class="input-label" for="clientName">الاسم بالكامل:</label>
+              <input type="text" id="clientName" class="input-field" placeholder="خالد بن أحمد الشامسي" required>
+            </div>
+            
+            <div class="form-field-wrapper">
+              <label class="input-label" for="clientPhone">رقم الهاتف الإماراتي:</label>
+              <input type="tel" id="clientPhone" class="input-field english-num" placeholder="0501234567" pattern="[0-9]{9,10}" required>
+              <small style="color:var(--text-muted); font-size:0.75rem; display:block; margin-top:5px;">مكون من 9 أو 10 أرقام (مثال: 05XXXXXXXX)</small>
+            </div>
+
+            <div class="form-field-wrapper">
+              <label class="input-label" for="clientEmirate">الإمارة:</label>
+              <select id="clientEmirate" class="input-field" required>
+                <option value="" disabled selected>-- اختر الإمارة --</option>
+                <option value="أبوظبي">أبوظبي (Abu Dhabi)</option>
+                <option value="دبي">دبي (Dubai)</option>
+                <option value="الشارقة">الشارقة (Sharjah)</option>
+                <option value="عجمان">عجمان (Ajman)</option>
+                <option value="أم القيوين">أم القيوين (Umm Al Quwain)</option>
+                <option value="رأس الخيمة">رأس الخيمة (Ras Al Khaimah)</option>
+                <option value="الفجيرة">الفجيرة (Fujairah)</option>
+              </select>
+            </div>
+
+            <div class="form-field-wrapper">
+              <label class="input-label" for="clientArea">المنطقة / المدينة:</label>
+              <select id="clientArea" class="input-field" required disabled>
+                <option value="" disabled selected>-- اختر الإمارة أولاً --</option>
+              </select>
+            </div>
+
+            <div class="form-field-wrapper form-group-full">
+              <label class="input-label" for="clientAddress">العنوان بالتفصيل (اسم الشارع، رقم الفيلا أو البناية):</label>
+              <input type="text" id="clientAddress" class="input-field" placeholder="مثال: دبي، ديرة، شارع المكتوم، بناية الصقر شقة 4" required>
+            </div>
+          </div>
+
+          <!-- Price checkout summary -->
+          <div style="background-color:rgba(255, 255, 255, 0.02); padding: 20px 25px; border-radius: 16px; border:1px dashed var(--border-glass); margin: 30px 0;">
+            <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
+              <span>العرض المختار:</span>
+              <span id="form-package-name" style="font-weight:700;">الحزمة المزدوجة - جهازين (المعززة)</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
+              <span>تكلفة الشحن والتوصيل للإمارات:</span>
+              <span style="color:var(--primary-color); font-weight:700;"><i class="fa-solid fa-circle-check"></i> شحن مجاني</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; border-top:1px solid var(--border-glass); padding-top:10px; font-size:1.25rem; font-weight:800;">
+              <span>الإجمالي المستحق للدفع عند الاستلام:</span>
+              <span id="form-total-price" class="english-num" style="color:var(--primary-color);">249 AED</span>
+            </div>
+          </div>
+
+          <div class="submit-btn-wrapper">
+            <button type="submit" class="btn-premium btn-gold submit-btn">
+              <i class="fa-solid fa-cart-shopping" style="margin-left:10px;"></i> تأكيد الطلب الحين والدفع عند الاستلام
+            </button>
+          </div>
+        </form>
+
+        <div class="form-trust-banner">
+          <div class="form-trust-item">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>ضمان استبدال سنة كاملة</span>
+          </div>
+          <div class="form-trust-item">
+            <i class="fa-solid fa-box-open"></i>
+            <span>افحص واستلم بكل طمأنينة</span>
+          </div>
+          <div class="form-trust-item">
+            <i class="fa-solid fa-rotate-left"></i>
+            <span>استرجاع سهل 14 يوم</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem Section (Storytelling) -->
+  <section class="section section-dark reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">المشكلة اليومية</span>
+        <h2 class="section-title">لماذا تكره مغاسل السيارات التقليدية؟</h2>
+        <p class="section-subtitle">روتين الغسيل الأسبوعي أصبح عبئاً يضيع وقتك ومجهودك وأموالك.</p>
+      </div>
+
+      <div class="story-grid">
+        <div class="problem-card-wrapper">
+          <div class="problem-card">
+            <div class="problem-icon"><i class="fa-solid fa-clock"></i></div>
+            <div>
+              <h4 style="font-size:1.15rem; margin-bottom:8px;">طوابير الانتظار المملة</h4>
+              <p style="color:var(--text-muted); font-size:0.9rem;">تضييع ساعات طويلة في عطلة نهاية الأسبوع داخل المغاسل المزدحمة بانتظار دورك.</p>
+            </div>
+          </div>
+          <div class="problem-card">
+            <div class="problem-icon"><i class="fa-solid fa-money-bill-wave"></i></div>
+            <div>
+              <h4 style="font-size:1.15rem; margin-bottom:8px;">التكاليف الأسبوعية المرتفعة</h4>
+              <p style="color:var(--text-muted); font-size:0.9rem;">المبالغ الكبيرة المتراكمة التي تصرفها شهرياً للحصول على نظافة تدوم لأيام معدودة فقط.</p>
+            </div>
+          </div>
+          <div class="problem-card">
+            <div class="problem-icon"><i class="fa-solid fa-plug"></i></div>
+            <div>
+              <h4 style="font-size:1.15rem; margin-bottom:8px;">الأسلاك الطويلة ومنافذ الكهرباء</h4>
+              <p style="color:var(--text-muted); font-size:0.9rem;">صعوبة العثور على قابس كهرباء خارجي في فناء المنزل أو الموقف وسحب الكابلات الثقيلة.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div style="text-align: center;">
+          <img src="luxury_car_washer.png" alt="غسيل السيارات بالطرق التقليدية" style="width: 100%; max-width: 440px; border-radius:24px; border: 1px solid var(--border-glass); opacity: 0.85;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution Section (The Reveal) -->
+  <section class="section reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">الحل الذكي والفاخر</span>
+        <h2 class="section-title">نقدم لك HYDROJET X PRO</h2>
+        <p class="section-subtitle">المزيج المثالي بين الهندسة الألمانية المتقدمة والحرية الكاملة في تنظيف ممتلكاتك.</p>
+      </div>
+
+      <div class="story-grid">
+        <div style="text-align: center;">
+          <img src="luxury_car_washer.png" alt="مسدس غسيل السيارات اللاسلكي الفاخر" style="width: 100%; max-width: 460px; border-radius:24px; border:1px solid var(--primary-color); box-shadow: var(--shadow-blue);">
+        </div>
+
+        <div class="solution-card-wrapper">
+          <div class="solution-card">
+            <div class="solution-icon"><i class="fa-solid fa-battery-full"></i></div>
+            <div>
+              <h4 style="font-size:1.15rem; margin-bottom:8px;">حرية لاسلكية ببطاريتين</h4>
+              <p style="color:var(--text-muted); font-size:0.9rem;">يأتي الصندوق مجهزاً ببطاريتين ليثيوم 48V قويتين قابلتين لإعادة الشحن، للعمل المتواصل دون انقطاع.</p>
+            </div>
+          </div>
+          <div class="solution-card">
+            <div class="solution-icon"><i class="fa-solid fa-gauge-high"></i></div>
+            <div>
+              <h4 style="font-size:1.15rem; margin-bottom:8px;">تنظيف مائي قوي وموفر</h4>
+              <p style="color:var(--text-muted); font-size:0.9rem;">بفضل تدفق 240 لتر بالساعة وضغط مضاعف، يزيل أصعب الأوساخ والطين الجاف بمرونة مرشدة للمياه.</p>
+            </div>
+          </div>
+          <div class="solution-card">
+            <div class="solution-icon"><i class="fa-solid fa-filter"></i></div>
+            <div>
+              <h4 style="font-size:1.15rem; margin-bottom:8px;">شفط مائي ذكي مع سلة فلترة</h4>
+              <p style="color:var(--text-muted); font-size:0.9rem;">اسحب المياه من أي مصدر (دلو، خزان، أو قارورة مياه) مع فلتر دقيق يحبس الشوائب ويحمي المحرك.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section (Glassmorphism grid) -->
+  <section class="section section-dark reveal" id="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">الميزات الحصرية</span>
+        <h2 class="section-title">مصمم ليمنحك تجربة مثيرة للدهشة</h2>
+        <p class="section-subtitle">الاهتمام بأدق التفاصيل والملحقات الفاخرة للارتقاء بجودة غسيل سيارتك.</p>
+      </div>
+
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <span class="benefit-num english-num">01</span>
+          <div class="benefit-icon"><i class="fa-solid fa-shower"></i></div>
+          <h3>3 فوهات احترافية</h3>
+          <p>فوهة حمراء بزاوية 0° للتركيز الشديد وإزالة الطين، فوهة بيضاء بزاوية 40° للشطف، وموزع رغوة الفوم الكثيفة.</p>
+        </div>
+        <div class="benefit-card">
+          <span class="benefit-num english-num">02</span>
+          <div class="benefit-icon"><i class="fa-solid fa-briefcase"></i></div>
+          <h3>حقيبة تخزين مدمجة ومتينة</h3>
+          <p>حقيبة فاخرة وصلبة مقاومة للكسر تحفظ جميع الملحقات بدقة وتحملها بسهولة في صندوق السيارة الخلفي.</p>
+        </div>
+        <div class="benefit-card">
+          <span class="benefit-num english-num">03</span>
+          <div class="benefit-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3>هندسة وقائية مطورة</h3>
+          <p>محرك نحاسي صلب مزود بنظام عزل وحماية من الحرارة الزائدة لضمان عمل الجهاز لأكثر من 5 سنوات بدون أعطال.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section (Minimal timeline) -->
+  <section class="section reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">طريقة الاستخدام</span>
+        <h2 class="section-title">بساطة تشغيل مذهلة فـي 4 خطوات</h2>
+        <p class="section-subtitle">خطوات معدودة تفصلك عن النظافة الاحترافية التي تستحقها سيارتك.</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number english-num">01</div>
+          <h3>ركب البطارية</h3>
+          <p>اشحن بطارية الـ 48V وركبها في قاعدة المقبض بضغطة زر واحدة لتزويد الجهاز بالطاقة.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number english-num">02</div>
+          <h3>وصل الخرطوم والفلتر</h3>
+          <p>وصل خرطوم الشفط الطويل بالجهاز وثبت سلة الفلترة الذكية لمنع الشوائب وضعها في الماء.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number english-num">03</div>
+          <h3>اختر فوهة الغسيل</h3>
+          <p>ثبت الفوهة المطلوبة (المركزة، المروحية، أو وعاء الصابون للرغوة الكثيفة).</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number english-num">04</div>
+          <h3>ابدأ النظافة السريعة</h3>
+          <p>اضغط الزناد وابدأ بتنظيف السيارة أو النوافذ أو السجاد بحرية كاملة وسرعة فائقة.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Anatomy Section ("Ingredients" Structural Match) -->
+  <section class="section section-dark reveal" id="anatomy">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">الهندسة الداخلية</span>
+        <h2 class="section-title">التشريح الهندسي والجودة الداخلية</h2>
+        <p class="section-subtitle">نعرض لك التفاصيل الهندسية الدقيقة التي تجعل HYDROJET X PRO يتربع على عرش القوة.</p>
+      </div>
+
+      <div class="anatomy-grid">
+        <div class="anatomy-list">
+          <div class="anatomy-item active" data-target="brushless-motor">
+            <div class="anatomy-item-header">
+              <i class="fa-solid fa-bolt"></i>
+              <h4>محرك نحاسي خالص Brushless Motor</h4>
+            </div>
+            <div class="anatomy-item-details">
+              محرك قوي وعالي الكفاءة مصنوع من النحاس النقي 100% ليمنحك ثباتاً في ضغط الماء ويقاوم التآكل والحرارة الزائدة.
+            </div>
+          </div>
+          <div class="anatomy-item" data-target="lithium-battery">
+            <div class="anatomy-item-header">
+              <i class="fa-solid fa-battery-three-quarters"></i>
+              <h4>بطارية ليثيوم 48V مزدوجة</h4>
+            </div>
+            <div class="anatomy-item-details">
+              خلايا بطارية متميزة مع دارة ذكية لمنع الشحن الزائد والتفريغ العميق، توفر تشغيلاً مضاعفاً وآمناً.
+            </div>
+          </div>
+          <div class="anatomy-item" data-target="piston-pump">
+            <div class="anatomy-item-header">
+              <i class="fa-solid fa-gauge"></i>
+              <h4>مضخة مكبس الضغط المزدوج</h4>
+            </div>
+            <div class="anatomy-item-details">
+              مكبس معدني عالي الكفاءة يضغط المياه بشكل جبار ويضمن ثبات تدفق المياه بمعدل 240 لتر/ساعة بدون تذبذب.
+            </div>
+          </div>
+          <div class="anatomy-item" data-target="safety-lock">
+            <div class="anatomy-item-header">
+              <i class="fa-solid fa-lock"></i>
+              <h4>زر القفل وبوابة الأمان الذكية</h4>
+            </div>
+            <div class="anatomy-item-details">
+              قفل أمان يمنع التشغيل العشوائي والضغط غير المقصود لحماية الأطفال والحفاظ على شحن البطارية.
+            </div>
+          </div>
+        </div>
+
+        <div class="anatomy-viewer">
+          <img id="anatomy-image" src="luxury_car_washer.png" alt="مسدس غسيل السيارات اللاسلكي التفاصيل الداخلية">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Before & After Image Slider -->
+  <section class="section reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">نتائج حقيقية وصادمة</span>
+        <h2 class="section-title">شاهد فارق النظافة واللمعان بنفسك</h2>
+        <p class="section-subtitle">اسحب الشريط المنزلق في الوسط لترى كيف يقوم مسدس الغسيل بإزالة أقسى الأوساخ والدهون في ثوانٍ.</p>
+      </div>
+
+      <!-- Comparison Slider Widget -->
+      <div class="slider-container" id="before-after-slider">
+        <div class="before-image">
+          <!-- Dirty Car View -->
+          <img src="luxury_car_washer.png" alt="إطارات سيارة متسخة بالطين" style="filter: grayscale(80%) contrast(120%) brightness(70%);">
+          <span class="slider-label label-before">قبل الغسيل</span>
+        </div>
+        <div class="after-image" id="after-image-clip">
+          <!-- Clean Car View -->
+          <img src="luxury_car_washer.png" alt="سيارة نظيفة ولامعة بعد الغسيل">
+          <span class="slider-label label-after">بعد الغسيل بالرغوة</span>
+        </div>
+        <div class="slider-handle" id="slider-handle">
+          <div class="slider-button"><i class="fa-solid fa-left-right"></i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Reviews (Animated Carousel) -->
+  <section class="section section-dark reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">ثقة متبادلة</span>
+        <h2 class="section-title">تجارب حقيقية من عملائنا النخبة</h2>
+        <p class="section-subtitle">شاهد انطباعات وتجارب زبائننا في دولة الإمارات بعد استخدامهم للجهاز.</p>
+      </div>
+
+      <!-- Animated Reviews Carousel Container -->
+      <div class="reviews-slider">
+        <div class="review-slide active" data-index="0">
+          <div class="review-stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="review-quote">"ضغط الماء فاق توقعاتي بكثير! البطاريتين المرفقة خلت غسيل سيارتي الفاخرة سهل وسريع بدون أسلاك، وصندوق التخزين ممتاز."</p>
+          <div class="reviewer-meta">سيف المنصوري <span>- أبوظبي</span></div>
+        </div>
+
+        <div class="review-slide" data-index="1">
+          <div class="review-stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="review-quote">"وعاء الفوم بيطلع رغوة كثيفة تعلق بالأوساخ وتدوبها زي مغاسل السيارات الكبيرة. وفرت وقت وفلوس كثيرة!"</p>
+          <div class="reviewer-meta">فيصل الشامسي <span>- دبي، البرشاء</span></div>
+        </div>
+
+        <div class="review-slide" data-index="2">
+          <div class="review-stars">
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </div>
+          <p class="review-quote">"أفضل استثمار لسيارتي لعام 2026. الشحن وصلني العين في 24 ساعة، وتأكدت وفحصت المنتج قبل ما أدفع درهم واحد."</p>
+          <div class="reviewer-meta">محمد الكتبي <span>- العين</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Offer Cards Section -->
+  <section class="section reveal" id="offer">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">عروض حصرية محدودة</span>
+        <h2 class="section-title">احصل على نسختك الحين ووفر 50%</h2>
+        <p class="section-subtitle">شحن مجاني لكافة إمارات الدولة لجميع العروض الحالية، الدفع عند الاستلام نقداً أو بالبطاقة.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Card 1 -->
+        <div class="pricing-card" data-package="basic" onclick="selectPricing('basic', 149, 'الحزمة الأساسية (جهاز واحد + 2 بطارية)', true)">
+          <div class="pricing-header">
+            <h3>الحزمة الأساسية</h3>
+            <p>الخيار الفردي للغسيل السريع والمريح</p>
+          </div>
+          <div class="price-display">
+            <span class="price-old-tag english-num">249 AED</span>
+            <span class="price-new-tag english-num">149<span>AED</span></span>
+          </div>
+          <ul class="pricing-features-list">
+            <li><i class="fa-solid fa-circle-check"></i> مسدس الغسيل اللاسلكي المطور</li>
+            <li><i class="fa-solid fa-circle-check"></i> 2 بطارية ليثيوم 48V قوية</li>
+            <li><i class="fa-solid fa-circle-check"></i> وعاء الفوم وفوهات البخ 0° و 40°</li>
+            <li><i class="fa-solid fa-circle-check"></i> خرطوم مياه 5 أمتار مع الفلتر الذكي</li>
+            <li><i class="fa-solid fa-circle-check"></i> صندوق تخزين متين وعملي</li>
+            <li><i class="fa-solid fa-circle-check"></i> الدفع نقداً عند الاستلام</li>
+          </ul>
+          <button class="pricing-select-btn">اختر هذا العرض</button>
+        </div>
+
+        <!-- Card 2 (Featured) -->
+        <div class="pricing-card featured selected" data-package="double" onclick="selectPricing('double', 249, 'الحزمة المزدوجة - جهازين (المعززة)', true)">
+          <div class="pricing-badge">المعرض الأكثر مبيعاً وتوفيراً (جهازين كاملين)</div>
+          <div class="pricing-header">
+            <h3>الحزمة المزدوجة</h3>
+            <p>مثالية للعائلات والمشاركة ووفر 49 درهم!</p>
+          </div>
+          <div class="price-display">
+            <span class="price-old-tag english-num">498 AED</span>
+            <span class="price-new-tag english-num">249<span>AED</span></span>
+          </div>
+          <ul class="pricing-features-list">
+            <li><i class="fa-solid fa-circle-check"></i> 2 مسدس غسيل لاسلكي متكاملين</li>
+            <li><i class="fa-solid fa-circle-check"></i> 4 بطاريات ليثيوم 48V قوية</li>
+            <li><i class="fa-solid fa-circle-check"></i> 2 وعاء فوم + 4 فوهات بخ احترافية</li>
+            <li><i class="fa-solid fa-circle-check"></i> 2 صندوق تخزين متين بكل ملحقاتهما</li>
+            <li><i class="fa-solid fa-circle-check"></i> شحن مجاني وسريع لكافة الإمارات</li>
+            <li><i class="fa-solid fa-circle-check"></i> ضمان ذهبي للاستبدال لمدة 12 شهر</li>
+            <li><i class="fa-solid fa-circle-check"></i> الدفع عند الاستلام نقداً أو بالبطاقة</li>
+          </ul>
+          <button class="pricing-select-btn">اختر هذا العرض الفاخر</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- FAQ Section Custom Accordion -->
+  <section class="section reveal" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">دعم الزبائن</span>
+        <h2 class="section-title">هل لديك أي استفسارات؟</h2>
+        <p class="section-subtitle">أجوبة سريعة لأهم الأسئلة الشائعة من زبائننا في الإمارات.</p>
+      </div>
+
+      <div class="faq-box">
+        <div class="faq-card">
+          <button class="faq-btn">
+            <span>هل يتوفر الجهاز فعلاً ببطاريتين في الصندوق؟</span>
+            <div class="faq-icon-holder">+</div>
+          </button>
+          <div class="faq-content">
+            نعم، جميع الحزم المتوفرة لدينا تشمل بطاريتين ليثيوم 48V قويتين. هذا يوفر عليك فترات الانتظار للشحن؛ حيث يمكنك استخدام بطارية للغسيل وترك الأخرى قيد الشحن.
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <button class="faq-btn">
+            <span>كيف يقوم الجهاز بسحب المياه دون صنبور خارجي؟</span>
+            <div class="faq-icon-holder">+</div>
+          </button>
+          <div class="faq-content">
+            يأتي الجهاز بمضخة شفط ومستخلص ذاتي. ضع خرطوم الشفط الطويل المرفق في أي دلو أو خزان ماء، وسيبدأ مسدس الغسيل بسحب المياه وضغطها بقوة عالية تلقائياً.
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <button class="faq-btn">
+            <span>ما أهمية الفلتر الذكي المرفق مع الخرطوم؟</span>
+            <div class="faq-icon-holder">+</div>
+          </button>
+          <div class="faq-content">
+            الفلتر عبارة عن سلة شبكية دقيقة تُثبت بنهاية الخرطوم. وظيفتها حجب وتصفية المياه من الشوائب والحصى الصغير والرمل، مما يمنع انسداد مضخة الضغط ويحافظ على محرك الجهاز ليعمل بكفاءة لسنوات طويلة.
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <button class="faq-btn">
+            <span>هل يمكنني معاينة وفحص الطلب قبل الدفع للمندوب؟</span>
+            <div class="faq-icon-holder">+</div>
+          </button>
+          <div class="faq-content">
+            نعم، نضمن لك فحص الطلب بالكامل وفتحه عند وصول المندوب لباب منزلك. يمكنك التأكد من سلامة الصندوق والملحقات والبطاريات قبل سداد قيمة الطلب.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sticky CTA Bottom Bar -->
+  <div class="sticky-cta-bar" id="sticky-cta">
+    <div class="sticky-product-info">
+      <img src="luxury_car_washer.png" alt="مسدس غسيل لاسلكي">
+      <div class="sticky-product-title">
+        <h4>HYDROJET X PRO</h4>
+        <p>ببطاريتين 48V وصندوق تخزين متين</p>
+      </div>
+    </div>
+    <div>
+      <a href="#checkout-form-section" class="btn-premium btn-gold" style="padding: 12px 30px; font-size: 0.9rem;">اطلب الحين</a>
+    </div>
+  </div>
+
+  <!-- WhatsApp Float Button -->
+  <a href="https://wa.me/971501234567?text=مرحباً%20هيدروجيت%20الإمارات،%20أريد%20الاستفسار%20عن%20مسدس%20الغسيل%20HYDROJET%20X%20PRO" class="whatsapp-float-btn" target="_blank" aria-label="تواصل معنا واتساب">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- Live Purchase Popup Notification -->
+  <div class="purchase-toast" id="purchase-toast">
+    <img src="luxury_car_washer.png" alt="تأكيد شراء هيدروجيت">
+    <div class="purchase-toast-info">
+      <span id="toast-text">اشترى <strong>سلطان الشامسي</strong> من <strong>دبي</strong> الحزمة المزدوجة!</span>
+      <div class="purchase-toast-time"><i class="fa-solid fa-clock"></i> تم تأكيد الطلب بنجاح</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">HYDRO<span>JET</span></div>
+      <p class="footer-desc">نحن ملتزمون بتوفير أفضل أجهزة وحلول العناية الراقية بالسيارات والمقتنيات المنزلية وتوصيلها لباب منزلك في الإمارات بأعلى معايير الجودة.</p>
+      <div class="footer-links">
+        <a href="#features">المميزات</a>
+        <a href="#anatomy">الهيكل الداخلي</a>
+        <a href="#offer">العروض والأسعار</a>
+        <a href="#faq">الأسئلة الشائعة</a>
+      </div>
+      <p class="footer-copyright">حقوق الطبع والنشر © 2026 محفوظة لشركة هيدروجيت الإمارات للتجارة الإلكترونية.</p>
+    </div>
+  </footer>
+
+  <!-- App JS -->
+  <script src="app.js"></script>
+</body>
+</html>

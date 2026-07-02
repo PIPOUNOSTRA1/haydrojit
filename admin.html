@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة التحكم وإدارة الطلبات - كلين جت الإمارات</title>
+  
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Chart.js for Sales Analytics -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="index.css">
+</head>
+<body class="admin-body">
+
+  <!-- Secure Login Overlay -->
+  <div class="login-overlay" id="login-overlay">
+    <div class="login-card">
+      <div class="login-icon-box"><i class="fa-solid fa-lock"></i></div>
+      <h2 style="font-size: 1.6rem; font-weight: 800; margin-bottom: 10px; color: var(--text-white);">تسجيل الدخول للمشرف</h2>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 30px;">يرجى إدخال كلمة المرور للوصول إلى لوحة تحكم المتجر</p>
+      
+      <form id="adminLoginForm" onsubmit="handleLogin(event)">
+        <div class="form-field-wrapper form-group-full">
+          <input type="password" id="adminPassword" class="input-field" placeholder="كلمة المرور" required style="text-align: center;">
+        </div>
+        <div id="loginError" style="color: #ef4444; font-size: 0.85rem; margin-top: -15px; margin-bottom: 20px; display: none;">كلمة المرور غير صحيحة!</div>
+        
+        <button type="submit" class="btn-premium btn-gold submit-btn" style="padding: 15px 30px;">
+          دخول لوحة التحكم
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Admin Header -->
+  <header class="admin-header" style="height: 80px; border-bottom: 1px solid var(--border-glass); background-color: rgba(3, 7, 18, 0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); display: flex; align-items: center; position: sticky; top: 0; z-index: 999;">
+    <div class="container nav-container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+      <div class="logo" style="font-weight: 900; font-size: 1.4rem;">
+        <i class="fa-solid fa-droplet" style="color: var(--primary-color);"></i>
+        لوحة التحكم | <span>هيدروجيت الإمارات</span>
+      </div>
+      <div style="display: flex; gap: 15px; align-items: center;">
+        <a href="index.html" target="_blank" class="btn-export" style="text-decoration:none; padding: 8px 16px; font-size: 0.85rem;"><i class="fa-solid fa-store" style="margin-left:5px;"></i> معاينة المتجر</a>
+        <button onclick="handleLogout()" class="btn-export" style="background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.2); color: #ef4444; cursor: pointer; padding: 8px 16px; font-size: 0.85rem;"><i class="fa-solid fa-right-from-bracket" style="margin-left:5px;"></i> خروج</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Admin Control Layout Split -->
+  <div class="admin-layout">
+    
+    <!-- Sidebar Menu (Right in RTL) -->
+    <aside class="admin-sidebar">
+      <ul class="admin-menu-list">
+        <li class="admin-menu-item active" id="menu-btn-overview">
+          <button onclick="switchTab('overview')"><i class="fa-solid fa-chart-line" style="margin-left: 8px;"></i> التحليلات العامة</button>
+        </li>
+        <li class="admin-menu-item" id="menu-btn-orders">
+          <button onclick="switchTab('orders')"><i class="fa-solid fa-box" style="margin-left: 8px;"></i> إدارة الطلبات</button>
+        </li>
+        <li class="admin-menu-item" id="menu-btn-settings">
+          <button onclick="switchTab('settings')"><i class="fa-solid fa-gears" style="margin-left: 8px;"></i> إعدادات الربط</button>
+        </li>
+      </ul>
+      <div style="text-align: center; color: var(--text-gray); font-size: 0.75rem;">
+        هيدروجيت v1.2.0 &copy; 2026
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="admin-main-content">
+      
+      <!-- Tab 1: Overview Analytics -->
+      <div class="tab-pane active" id="tab-overview">
+        <!-- Stats Cards Grid -->
+        <div class="admin-stats-grid">
+          <!-- Total Revenue Card -->
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-coins"></i></div>
+            <div class="stat-info">
+              <span>إجمالي المبيعات (المستلمة)</span>
+              <span id="stat-revenue">0.0 درهم</span>
+            </div>
+          </div>
+
+          <!-- Total Orders Card -->
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fa-solid fa-truck"></i></div>
+            <div class="stat-info">
+              <span>إجمالي الطلبات</span>
+              <span id="stat-orders-count">0</span>
+            </div>
+          </div>
+
+          <!-- Pending Orders Card -->
+          <div class="stat-card">
+            <div class="stat-icon" style="background-color:rgba(56, 189, 248, 0.1); color:var(--primary-color);"><i class="fa-solid fa-clock"></i></div>
+            <div class="stat-info">
+              <span>طلبات قيد الانتظار</span>
+              <span id="stat-pending-count">0</span>
+            </div>
+          </div>
+
+          <!-- Average Order Value (AOV) Card -->
+          <div class="stat-card">
+            <div class="stat-icon" style="background-color:rgba(34, 197, 94, 0.1); color:var(--accent-green);"><i class="fa-solid fa-calculator"></i></div>
+            <div class="stat-info">
+              <span>متوسط قيمة الطلب (AOV)</span>
+              <span id="stat-aov">0.0 درهم</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts Grid -->
+        <div class="charts-grid">
+          <div class="chart-card">
+            <h4><i class="fa-solid fa-chart-area"></i> مخطط المبيعات اليومية</h4>
+            <div style="position: relative; height: 320px; width: 100%;">
+              <canvas id="salesTrendChart"></canvas>
+            </div>
+          </div>
+          <div class="chart-card">
+            <h4><i class="fa-solid fa-chart-pie"></i> نسبة المبيعات لكل إمارة</h4>
+            <div style="position: relative; height: 320px; width: 100%;">
+              <canvas id="cityChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: Orders Management -->
+      <div class="tab-pane" id="tab-orders" style="display: none;">
+        <!-- Orders Search & Filters -->
+        <div class="order-form-container" style="padding: 25px 30px; border-radius: 20px; margin-bottom: 30px; box-shadow: none; max-width: 100%; border: 1px solid var(--border-glass);">
+          <div style="display: flex; gap: 20px; flex-wrap: wrap; align-items: center; justify-content: space-between; width: 100%;">
+            <div style="display: flex; gap: 15px; flex-grow: 1; max-width: 600px; width: 100%;">
+              <input type="text" id="orderSearchInput" class="input-field" placeholder="ابحث باسم العميل أو رقم الهاتف..." oninput="filterOrdersList()" style="padding: 12px 20px; margin-bottom: 0; flex-grow: 2;">
+              <select id="orderStatusFilter" class="input-field" onchange="filterOrdersList()" style="width: 200px; padding: 12px 20px; margin-bottom: 0; flex-grow: 1;">
+                <option value="الكل">كل الحالات</option>
+                <option value="جديد">جديد</option>
+                <option value="تم الشحن">تم الشحن</option>
+                <option value="تم التوصيل">تم التوصيل</option>
+                <option value="ملغي">ملغي</option>
+              </select>
+            </div>
+            <button id="btnExport" class="btn-export" style="height: 50px; cursor: pointer;">
+              <i class="fa-solid fa-file-excel" style="margin-left:5px;"></i> تصدير البيانات (CSV)
+            </button>
+          </div>
+        </div>
+
+        <!-- Orders Table Section -->
+        <div class="orders-table-wrapper" style="margin-top: 0;">
+          <div style="overflow-x: auto;">
+            <table class="orders-table">
+              <thead>
+                <tr>
+                  <th>رقم الطلب</th>
+                  <th>التاريخ</th>
+                  <th>اسم العميل</th>
+                  <th>رقم الهاتف</th>
+                  <th>الإمارة/المدينة</th>
+                  <th>العنوان</th>
+                  <th>العرض المختار</th>
+                  <th>القيمة</th>
+                  <th>الحالة</th>
+                  <th>إجراءات</th>
+                </tr>
+              </thead>
+              <tbody id="ordersTableBody">
+                <tr>
+                  <td colspan="10" style="text-align:center; color:var(--text-gray);">جاري تحميل البيانات...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 3: Integration Settings -->
+      <div class="tab-pane" id="tab-settings" style="display: none; max-width: 800px; margin: 0 auto;">
+        <div class="order-form-container" style="box-shadow: 0 15px 45px rgba(0,0,0,0.4); margin-bottom: 50px; border: 1px solid var(--border-glass);">
+          <h3 class="form-title" style="margin-bottom: 40px;"><i class="fa-solid fa-gear" style="margin-left: 10px; color: var(--primary-color);"></i>إعدادات الربط والتتبع</h3>
+          
+          <form id="adminSettingsForm" onsubmit="saveSettings(event)">
+            <div class="form-field-wrapper form-group-full">
+              <label class="input-label" for="googleSheetsUrl"><i class="fa-solid fa-file-csv" style="margin-left: 8px; color: #22c55e;"></i>رابط Google Sheets Web App:</label>
+              <input type="url" id="googleSheetsUrl" class="input-field english-num" placeholder="https://script.google.com/macros/s/..." style="text-align: left; direction: ltr;">
+              <small style="color: var(--text-muted); font-size: 0.8rem; display: block; margin-top: 5px;">أدخل رابط الويب الذي حصلت عليه بعد نشر الـ Apps Script في ملف الإكسل.</small>
+            </div>
+
+            <div class="form-field-wrapper form-group-full" style="margin-top: 30px;">
+              <label class="input-label" for="tiktokPixelId"><i class="fa-brands fa-tiktok" style="margin-left: 8px; color: #ff0050;"></i>TikTok Pixel ID:</label>
+              <input type="text" id="tiktokPixelId" class="input-field english-num" placeholder="C1234567890ABC" style="text-align: left; direction: ltr;">
+              <small style="color: var(--text-muted); font-size: 0.8rem; display: block; margin-top: 5px;">معرف بكسل تيك توك لتتبع الطلبات والتحويلات تلقائياً.</small>
+            </div>
+
+            <div class="submit-btn-wrapper" style="margin-top: 40px;">
+              <button type="submit" class="btn-premium btn-gold submit-btn" style="padding: 15px 30px;">
+                <i class="fa-solid fa-floppy-disk" style="margin-left: 10px;"></i>حفظ الإعدادات
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Google Sheets Setup Guide -->
+        <div style="background-color: var(--bg-card); border: 1px solid var(--border-glass); padding: 40px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); margin-bottom: 60px;">
+          <h4 style="font-size: 1.3rem; margin-bottom: 20px; color: var(--primary-color); display: flex; align-items: center; gap: 10px; font-weight: 800;">
+            <i class="fa-solid fa-circle-info"></i>
+            دليل إعداد ربط Google Sheets بالتفصيل
+          </h4>
+          <ol style="padding-right: 20px; color: var(--text-muted); font-size: 0.95rem; line-height: 1.8; margin-bottom: 30px;">
+            <li>قم بفتح ملف Google Sheets (جدول بيانات جديد).</li>
+            <li>من القائمة العلوية، اختر <strong>Extensions</strong> (الامتدادات) ثم اضغط على <strong>Apps Script</strong>.</li>
+            <li>احذف أي كود موجود في المحرر بالكامل، وقم بلصق الكود البرمجي الموضح أدناه.</li>
+            <li>اضغط على زر <strong>Save</strong> (رمز القرص المرن) لحفظ المشروع.</li>
+            <li>اضغط على زر <strong>Deploy</strong> ثم اختر <strong>New deployment</strong> (نشر جديد).</li>
+            <li>اضغط على رمز الترس بجوار Select type واختر <strong>Web app</strong> (تطبيق ويب).</li>
+            <li>تأكد من تهيئة الإعدادات كالتالي:
+              <ul style="padding-right: 20px; list-style-type: circle; margin-top: 5px;">
+                <li>Execute as: <strong>Me (بريدك الإلكتروني)</strong></li>
+                <li>Who has access: <strong>Anyone</strong> (أي شخص - لتتمكن منصة المتجر من إرسال البيانات له)</li>
+              </ul>
+            </li>
+            <li>اضغط على زر <strong>Deploy</strong>، ثم قم بالموافقة على الصلاحيات المطلوبة (Authorize access).</li>
+            <li>انسخ رابط الويب (Web App URL) الناتج بالكامل، وضعه في حقل إدخال الرابط بالأعلى ثم اضغط حفظ.</li>
+          </ol>
+
+          <h5 style="font-size: 1rem; margin-bottom: 10px; color: var(--text-white); font-weight: 700;">الكود البرمجي لـ Apps Script (جاهز للنسخ):</h5>
+          <div style="position: relative;">
+            <textarea readonly style="width: 100%; height: 280px; background-color: #0c1017; border: 1px solid var(--border-glass); border-radius: 12px; color: #c9d1d9; font-family: monospace; font-size: 0.85rem; padding: 15px; direction: ltr; text-align: left; resize: none; outline: none; margin-bottom: 15px;" id="appsScriptCode">function doPost(e) {
+  try {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    var data = JSON.parse(e.postData.contents);
+    
+    // Append headers if sheet is empty
+    if (sheet.getLastRow() === 0) {
+      sheet.appendRow(["رقم الطلب", "التاريخ", "الاسم بالكامل", "رقم الهاتف", "الإمارة/المدينة", "العنوان التفصيلي", "الحزمة المطلوبة", "السعر النهائي (درهم)", "الحالة"]);
+    }
+    
+    sheet.appendRow([
+      data.id,
+      data.date,
+      data.name,
+      data.phone,
+      data.city,
+      data.address,
+      data.packageName,
+      data.price,
+      data.status
+    ]);
+    
+    return ContentService.createTextOutput(JSON.stringify({ success: true }))
+      .setMimeType(ContentService.MimeType.JSON);
+  } catch (err) {
+    return ContentService.createTextOutput(JSON.stringify({ success: false, error: err.toString() }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+}</textarea>
+            <button onclick="copyAppsScript()" class="btn-premium" style="padding: 12px 20px; font-size: 0.85rem; border-radius: 50px; border: 1px solid var(--border-glass); background: rgba(255,255,255,0.05); color: var(--text-white); width: 100%; cursor: pointer;">نسخ الكود بالكامل</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Admin JS Script -->
+  <script src="admin.js"></script>
+</body>
+</html>

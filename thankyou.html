@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تم استلام طلبك بنجاح - هيدروجيت الإمارات</title>
+  
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="index.css">
+</head>
+<body style="background-color: var(--bg-dark); color: var(--text-white);">
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <i class="fa-solid fa-droplet"></i>
+        HYDRO<span>JET</span>
+      </a>
+      <a href="index.html" class="nav-cta">العودة للمتجر</a>
+    </div>
+  </nav>
+
+  <!-- Thank You Content -->
+  <div class="container">
+    <div class="thankyou-wrapper" style="min-height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 60px 20px;">
+      <div class="success-icon" style="width: 90px; height: 90px; border-radius: 50%; background-color: rgba(14, 165, 233, 0.1); border: 2px solid var(--primary-color); display: flex; align-items: center; justify-content: center; color: var(--primary-color); font-size: 2.5rem; margin-bottom: 30px; box-shadow: var(--shadow-blue);">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+      <h1 style="font-size: 2.8rem; font-weight: 900; margin-bottom: 15px;">تم تسجيل طلبك بنجاح!</h1>
+      <p style="color: var(--text-muted); font-size: 1.2rem; max-width: 600px; margin-bottom: 40px; font-weight: 300;">شكراً لاختيارك HYDROJET. يقوم فريقنا حالياً بمراجعة طلبك وإعداد شحنتك الفاخرة للإرسال. سيقوم موظف التأكيد بالاتصال بك هاتفياً خلال ساعات لتأكيد العنوان وموعد التسليم.</p>
+
+      <!-- Order Details Summary Box -->
+      <div class="order-details-box" style="background-color: var(--bg-card); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid var(--border-glass); border-radius: 24px; padding: 35px 40px; width: 100%; max-width: 550px; text-align: right; margin-bottom: 40px; box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5);">
+        <h3 style="border-bottom: 1px solid var(--border-glass); padding-bottom: 15px; margin-bottom: 20px; font-size: 1.3rem; color: var(--primary-color); font-weight: 800;">خلاصة الشحنة والطلب</h3>
+        <div class="order-details-row" style="display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 1rem;">
+          <span style="color: var(--text-muted);">رقم التتبع للطلب:</span>
+          <span id="detail-order-id" style="font-weight: 700; color: var(--primary-color); font-family: var(--font-english);">AE-000000</span>
+        </div>
+        <div class="order-details-row" style="display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 1rem;">
+          <span style="color: var(--text-muted);">الاسم بالكامل:</span>
+          <span id="detail-client-name" style="font-weight: 700;">جاري التحميل...</span>
+        </div>
+        <div class="order-details-row" style="display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 1rem;">
+          <span style="color: var(--text-muted);">رقم الهاتف:</span>
+          <span id="detail-client-phone" dir="ltr" style="font-weight: 700; font-family: var(--font-english);">جاري التحميل...</span>
+        </div>
+        <div class="order-details-row" style="display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 1rem;">
+          <span style="color: var(--text-muted);">الإمارة / الوجهة:</span>
+          <span id="detail-client-city" style="font-weight: 700;">جاري التحميل...</span>
+        </div>
+        <div class="order-details-row" style="display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 1rem;">
+          <span style="color: var(--text-muted);">الباقة المحددة:</span>
+          <span id="detail-package-name" style="font-weight: 700;">جاري التحميل...</span>
+        </div>
+        <div class="order-details-row" style="display: flex; justify-content: space-between; border-top: 1px dashed var(--border-glass); padding-top: 15px; margin-top: 15px; font-size: 1.3rem; font-weight: 800;">
+          <span>المستحق للدفع عند الاستلام:</span>
+          <span id="detail-total-price" class="english-num" style="color: var(--primary-color);">0.0 AED</span>
+        </div>
+      </div>
+
+      <!-- Action buttons -->
+      <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; width: 100%; max-width: 550px;">
+        <a href="index.html" class="btn-premium" style="flex: 1; min-width: 220px; background-color: transparent; border: 1px solid var(--border-glass); color: var(--text-white); text-decoration: none;">
+          <i class="fa-solid fa-arrow-right" style="margin-left: 10px;"></i> العودة للمتجر
+        </a>
+        <a id="whatsapp-confirm-btn" href="#" target="_blank" class="btn-premium btn-gold" style="flex: 1; min-width: 220px; background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); border-color: #16a34a; box-shadow: 0 4px 20px rgba(34, 197, 94, 0.4); text-decoration: none; color: #fff;">
+          <i class="fa-brands fa-whatsapp" style="margin-left: 10px;"></i> تأكيد الطلب فورا واتساب
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p style="color: var(--text-gray); font-size: 0.85rem;">حقوق الطبع والنشر © 2026 محفوظة لشركة هيدروجيت الإمارات.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Remove loading screen if styling includes it
+      const loader = document.getElementById('page-loader');
+      if (loader) loader.style.display = 'none';
+
+      // Load last order details from localStorage
+      const lastOrderStr = localStorage.getItem('lastOrder');
+      if (lastOrderStr) {
+        const order = JSON.parse(lastOrderStr);
+        
+        // Fill page elements
+        document.getElementById('detail-order-id').textContent = order.id;
+        document.getElementById('detail-client-name').textContent = order.name;
+        document.getElementById('detail-client-phone').textContent = order.phone;
+        document.getElementById('detail-client-city').textContent = order.city;
+        document.getElementById('detail-package-name').textContent = order.packageName;
+        document.getElementById('detail-total-price').textContent = `${order.price} AED`;
+
+        // Update Whatsapp button link
+        const whatsappBtn = document.getElementById('whatsapp-confirm-btn');
+        const textMessage = encodeURIComponent(
+          `مرحباً هيدروجيت الإمارات، قمت للتو بطلب مسدس غسيل السيارات اللاسلكي HYDROJET X PRO ببطاريتين.\n\n` +
+          `تفاصيل طلبي:\n` +
+          `- رقم الطلب: ${order.id}\n` +
+          `- الاسم: ${order.name}\n` +
+          `- الهاتف: ${order.phone}\n` +
+          `- الإمارة: ${order.city}\n` +
+          `- العنوان: ${order.address}\n` +
+          `- العرض: ${order.packageName}\n` +
+          `- السعر الإجمالي: ${order.price} درهم إماراتي\n\n` +
+          `الرجاء تأكيد الشحن والتسليم في أسرع وقت. شكراً.`
+        );
+        whatsappBtn.href = `https://wa.me/971501234567?text=${textMessage}`;
+
+        // Dynamic TikTok Pixel Initialisation & Purchase Event Tracking
+        fetch('/api/settings')
+          .then(res => res.json())
+          .then(data => {
+            if (data.success && data.tiktok_pixel_id) {
+              const pixelId = data.tiktok_pixel_id.trim();
+              if (!pixelId) return;
+
+              console.log('[TikTok Pixel] Thank You Page init with ID:', pixelId);
+              
+              !function (w, d, t) {
+                w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","cleanCookie","useCookie","setCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var e=0;e<ttq.methods.length;e++)ttq.setAndDefer(ttq,ttq.methods[e]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n;var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
+                
+                ttq.load(pixelId);
+                ttq.page();
+                
+                // Track Purchase Conversion Event
+                ttq.track('CompletePayment', {
+                  contents: [{
+                    content_id: order.packageId,
+                    content_name: order.packageName,
+                    quantity: 1,
+                    price: order.price
+                  }],
+                  value: order.price,
+                  currency: 'AED'
+                });
+                console.log('[TikTok Pixel] Fired CompletePayment event');
+              }(window, document, 'ttq');
+            }
+          })
+          .catch(err => {
+            console.warn('[TikTok Pixel] Failed to initialize on Thank You page:', err);
+          });
+      } else {
+        // Fallback if local storage empty
+        document.querySelector('.order-details-box').style.display = 'none';
+        document.getElementById('whatsapp-confirm-btn').style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
