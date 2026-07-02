@@ -329,44 +329,6 @@ function initOrderForm() {
   const form = document.getElementById('luxuryOrderForm');
   if (!form) return;
 
-  // Bind Emirate change listener to populate regions dynamically
-  const emirateSelect = document.getElementById('clientEmirate');
-  if (emirateSelect) {
-    emirateSelect.addEventListener('change', () => {
-      const selectedEmirate = emirateSelect.value;
-      const areaSelect = document.getElementById('clientArea');
-      if (!areaSelect) return;
-      
-      areaSelect.innerHTML = '';
-      
-      if (selectedEmirate && UAE_REGIONS[selectedEmirate]) {
-        areaSelect.disabled = false;
-        
-        const defaultOpt = document.createElement('option');
-        defaultOpt.value = "";
-        defaultOpt.disabled = true;
-        defaultOpt.selected = true;
-        defaultOpt.textContent = "-- اختر المنطقة / المدينة --";
-        areaSelect.appendChild(defaultOpt);
-        
-        UAE_REGIONS[selectedEmirate].forEach(region => {
-          const opt = document.createElement('option');
-          opt.value = region;
-          opt.textContent = region;
-          areaSelect.appendChild(opt);
-        });
-      } else {
-        areaSelect.disabled = true;
-        const defaultOpt = document.createElement('option');
-        defaultOpt.value = "";
-        defaultOpt.disabled = true;
-        defaultOpt.selected = true;
-        defaultOpt.textContent = "-- اختر الإمارة أولاً --";
-        areaSelect.appendChild(defaultOpt);
-      }
-    });
-  }
-
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -374,8 +336,7 @@ function initOrderForm() {
     const phone = document.getElementById('clientPhone').value.trim();
     
     const emirate = document.getElementById('clientEmirate').value;
-    const area = document.getElementById('clientArea').value;
-    const city = `${emirate} - ${area}`;
+    const city = emirate;
 
     const address = document.getElementById('clientAddress').value.trim();
     const packageId = document.getElementById('selectedPackageId').value;
