@@ -48,9 +48,19 @@ function selectPricing(packageId, price, packageName, isUserClick = false) {
   // Update form order summaries
   const labelName = document.getElementById('form-package-name');
   const labelPrice = document.getElementById('form-total-price');
+  const labelProductPrice = document.getElementById('form-product-price');
+  const labelShippingPrice = document.getElementById('form-shipping-price');
   
   if (labelName) labelName.textContent = packageName;
   if (labelPrice) labelPrice.textContent = `${price} AED`;
+  
+  if (packageId === 'double') {
+    if (labelProductPrice) labelProductPrice.textContent = `239 AED`;
+    if (labelShippingPrice) labelShippingPrice.innerHTML = `<span style="color: #22c55e;"><i class="fa-solid fa-circle-check"></i> شحن مجاني</span>`;
+  } else {
+    if (labelProductPrice) labelProductPrice.textContent = `130 AED`;
+    if (labelShippingPrice) labelShippingPrice.textContent = `19 AED`;
+  }
 
   // If clicked from the top cards, scroll to the form section and focus client name
   if (isUserClick) {
@@ -407,8 +417,8 @@ document.addEventListener('DOMContentLoaded', () => {
   startLivePurchases();
   initTikTokPixel();
 
-  // Set default package selection to Double package (249 AED)
-  selectPricing('double', 249, 'الحزمة المزدوجة - جهازين (المعززة)');
+  // Set default package selection to Double package (239 AED)
+  selectPricing('double', 239, 'الحزمة المزدوجة - جهازين (المعززة)');
 });
 
 // Dynamic TikTok Pixel Initialisation

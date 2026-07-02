@@ -60,7 +60,7 @@ const defaultProducts = {
     "id": "double",
     "name": "الحزمة المزدوجة - جهازين (المعززة)",
     "subtitle": "العرض الأكثر طلباً وتوفيراً (جهازين كاملين)",
-    "price": 249.0,
+    "price": 239.0,
     "oldPrice": 498.0,
     "status": "active",
     "image": "car_washer_banner.jpg"

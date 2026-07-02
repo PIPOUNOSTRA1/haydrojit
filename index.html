@@ -96,7 +96,7 @@
             <!-- Hidden inputs for pricing state -->
             <input type="hidden" id="selectedPackageId" value="double">
             <input type="hidden" id="selectedPackageName" value="الحزمة المزدوجة - جهازين (المعززة)">
-            <input type="hidden" id="selectedPackagePrice" value="249">
+            <input type="hidden" id="selectedPackagePrice" value="239">
 
             <div class="form-grid">
               <!-- Package Selection Inside Form -->
@@ -107,14 +107,14 @@
                     <div class="option-radio"></div>
                     <div class="option-details">
                       <span class="option-title">الحزمة الأساسية <small style="color: var(--text-muted); margin-right: 5px;">(جهاز + بطاريتين)</small></span>
-                      <span class="option-price english-num">149 AED</span>
+                      <span class="option-price english-num">149 AED <small style="font-size: 0.75rem; font-weight: normal; color: var(--text-muted); font-family: Cairo, sans-serif;">(130 + 19 شحن)</small></span>
                     </div>
                   </div>
-                  <div class="form-package-option active" data-option-id="double" onclick="selectPricing('double', 249, 'الحزمة المزدوجة - جهازين (المعززة)', false)">
+                  <div class="form-package-option active" data-option-id="double" onclick="selectPricing('double', 239, 'الحزمة المزدوجة - جهازين (المعززة)', false)">
                     <div class="option-radio"></div>
                     <div class="option-details">
                       <span class="option-title">الحزمة المزدوجة <span class="option-badge">الأكثر مبيعاً وتوفيراً 🔥</span></span>
-                      <span class="option-price english-num">249 AED</span>
+                      <span class="option-price english-num">239 AED <small style="font-size: 0.75rem; font-weight: normal; color: #22c55e; font-family: Cairo, sans-serif;">(شحن مجاني)</small></span>
                     </div>
                   </div>
                 </div>
@@ -160,12 +160,16 @@
                 <span id="form-package-name" style="font-weight:700;">الحزمة المزدوجة - جهازين (المعززة)</span>
               </div>
               <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
+                <span>سعر العرض:</span>
+                <span id="form-product-price" style="font-weight:700;">239 AED</span>
+              </div>
+              <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
                 <span>تكلفة الشحن والتوصيل للإمارات:</span>
-                <span style="color:var(--primary-color); font-weight:700;"><i class="fa-solid fa-circle-check"></i> شحن مجاني</span>
+                <span id="form-shipping-price" style="color:var(--primary-color); font-weight:700;"><span style="color: #22c55e;"><i class="fa-solid fa-circle-check"></i> شحن مجاني</span></span>
               </div>
               <div style="display:flex; justify-content:space-between; border-top:1px solid var(--border-glass); padding-top:10px; font-size:1.25rem; font-weight:800;">
                 <span>الإجمالي المستحق للدفع عند الاستلام:</span>
-                <span id="form-total-price" class="english-num" style="color:var(--primary-color);">249 AED</span>
+                <span id="form-total-price" class="english-num" style="color:var(--primary-color);">239 AED</span>
               </div>
             </div>
 
@@ -570,7 +574,7 @@
       <div class="section-header">
         <span class="section-label">🔥 العرض ينتهي قريباً — الكمية محدودة</span>
         <h2 class="section-title">اختر عرضك الحين ووفّر لين 50%</h2>
-        <p class="section-subtitle">شحن مجاني لكل الإمارات + افحص قبل ما تدفع + ضمان استبدال سنة كاملة. <strong>بدون أي مخاطرة عليك.</strong></p>
+        <p class="section-subtitle">شحن سريع وآمن لكل الإمارات + افحص قبل ما تدفع + ضمان استبدال سنة كاملة. <strong>بدون أي مخاطرة عليك.</strong></p>
       </div>
 
       <div class="pricing-grid">
@@ -583,6 +587,7 @@
           <div class="price-display">
             <span class="price-old-tag english-num">249 AED</span>
             <span class="price-new-tag english-num">149<span>AED</span></span>
+            <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">(130 درهم + 19 درهم شحن)</div>
           </div>
           <ul class="pricing-features-list">
             <li><i class="fa-solid fa-circle-check"></i> مسدس غسيل لاسلكي بالكامل</li>
@@ -590,21 +595,23 @@
             <li><i class="fa-solid fa-circle-check"></i> وعاء الفوم + 2 فوهات بخ احترافية</li>
             <li><i class="fa-solid fa-circle-check"></i> خرطوم شفط 5 أمتار + فلتر ذكي</li>
             <li><i class="fa-solid fa-circle-check"></i> صندوق تخزين متين يتحمل السفر</li>
+            <li><i class="fa-solid fa-circle-check"></i> 🚚 شحن سريع وآمن لكل الإمارات بقيمة 19 درهم</li>
             <li><i class="fa-solid fa-circle-check"></i> افحص واستلم — ادفع بعدين!</li>
           </ul>
           <button class="pricing-select-btn">اطلب الحين — وفّر 100 درهم</button>
         </div>
 
         <!-- Card 2 (Featured) -->
-        <div class="pricing-card featured selected" data-package="double" onclick="selectPricing('double', 249, 'الحزمة المزدوجة - جهازين (المعززة)', true)">
-          <div class="pricing-badge">🏆 الأكثر مبيعاً — وفّر 249 درهم (جهازين كاملين!)</div>
+        <div class="pricing-card featured selected" data-package="double" onclick="selectPricing('double', 239, 'الحزمة المزدوجة - جهازين (المعززة)', true)">
+          <div class="pricing-badge">🏆 الأكثر مبيعاً — وفّر 259 درهم (جهازين كاملين!)</div>
           <div class="pricing-header">
             <h3>الحزمة المزدوجة</h3>
             <p>جهازين بسعر جهاز! واحد لك وواحد هدية أو للسيارة الثانية</p>
           </div>
           <div class="price-display">
             <span class="price-old-tag english-num">498 AED</span>
-            <span class="price-new-tag english-num">249<span>AED</span></span>
+            <span class="price-new-tag english-num">239<span>AED</span></span>
+            <div style="font-size: 0.85rem; color: #22c55e; margin-top: 5px; font-weight: bold;">(شحن مجاني وسريع لكل الإمارات)</div>
           </div>
           <ul class="pricing-features-list">
             <li><i class="fa-solid fa-circle-check"></i> <strong>2 مسدس غسيل لاسلكي كاملين</strong></li>
