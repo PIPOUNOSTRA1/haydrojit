@@ -97,9 +97,351 @@ body {
 
 /* Container */
 .container {
-  max-width: 1280px;
+/* Emotion & Brand Connection CSS */
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-label {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  animation: pulse-gradient 3s ease-in-out infinite;
+}
+
+@keyframes pulse-gradient {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: var(--text-white);
+  margin-bottom: 20px;
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  max-width: 700px;
   margin: 0 auto;
-  padding: 0 40px;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+/* Trust and Social Proof Animations */
+.benefit-card {
+  background: linear-gradient(135deg, rgba(14,165,233,0.05) 0%, rgba(217,119,6,0.03) 100%);
+  border: 1px solid var(--border-glass);
+  border-radius: 20px;
+  padding: 30px;
+  transition: var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.benefit-card:hover {
+  border-color: var(--primary-color);
+  background: linear-gradient(135deg, rgba(14,165,233,0.1) 0%, rgba(217,119,6,0.05) 100%);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(14, 165, 233, 0.15);
+}
+
+.benefit-num {
+  font-size: 2.5rem;
+}
+
+.benefit-icon {
+  color: var(--primary-color);
+  font-size: 2rem;
+}
+
+.benefit-card h3 {
+  color: var(--text-white);
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.benefit-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* Emotional Color Transitions */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: var(--transition-smooth);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Live Purchase Toast Notification */
+.purchase-toast {
+  position: fixed;
+  bottom: 80px;
+  right: -400px;
+  background: linear-gradient(135deg, var(--bg-card), rgba(14, 165, 233, 0.1));
+  border: 1px solid var(--border-glass);
+  border-radius: 16px;
+  padding: 15px 20px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  z-index: 998;
+  transition: right 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+}
+
+.purchase-toast.show {
+  right: 20px;
+}
+
+.purchase-toast img {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  border: 1px solid var(--border-glass);
+}
+
+.purchase-toast-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.purchase-toast-info span {
+  font-size: 0.9rem;
+  color: var(--text-white);
+  font-weight: 600;
+}
+
+.purchase-toast-time {
+  font-size: 0.8rem;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* FAQ Accordion Styling */
+.faq-box {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.faq-card {
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-glass);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+
+.faq-card:hover {
+  border-color: var(--primary-color);
+  background-color: rgba(14, 165, 233, 0.05);
+}
+
+.faq-btn {
+  width: 100%;
+  padding: 20px 25px;
+  background: none;
+  border: none;
+  color: var(--text-white);
+  font-family: var(--font-arabic);
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: var(--transition-fast);
+}
+
+.faq-btn:hover {
+  color: var(--primary-color);
+}
+
+.faq-icon-holder {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  transition: var(--transition-fast);
+}
+
+.faq-card.open .faq-btn {
+  color: var(--primary-color);
+}
+
+.faq-card.open .faq-icon-holder {
+  transform: rotate(45deg);
+}
+
+.faq-content {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 25px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  transition: var(--transition-smooth);
+}
+
+.faq-card.open .faq-content {
+  max-height: 300px;
+  padding: 0 25px 20px 25px;
+}
+
+/* Reviews Slider */
+.reviews-slider {
+  position: relative;
+}
+
+.review-slide {
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.review-slide.active {
+  opacity: 1;
+}
+
+.review-stars {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+
+.review-stars i {
+  color: var(--accent-gold);
+  font-size: 1.1rem;
+}
+
+.review-quote {
+  color: var(--text-white);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  font-weight: 500;
+  border-right: 4px solid var(--primary-color);
+  padding-right: 20px;
+}
+
+.reviewer-meta {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.reviewer-meta span {
+  color: var(--primary-color);
+}
+
+/* Enhanced Sticky CTA Bar */
+.sticky-cta-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(135deg, rgba(3, 7, 18, 0.95) 0%, rgba(14, 165, 233, 0.05) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 2px solid var(--primary-color);
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 999;
+  transform: translateY(100%);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 -10px 30px rgba(14, 165, 233, 0.1);
+}
+
+.sticky-cta-bar.show {
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section-label {
+    font-size: 0.9rem;
+  }
+
+  .checkout-wrapper {
+    grid-template-columns: 1fr !important;
+  }
+
+  .pricing-grid {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .pricing-card.featured {
+    transform: scale(1);
+  }
+
+  .faq-btn {
+    font-size: 0.95rem;
+    padding: 15px 20px;
+  }
+
+  .purchase-toast {
+    bottom: 70px;
+    right: -100%;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .sticky-cta-bar {
+    flex-direction: column;
+    gap: 15px;
+    padding: 12px 20px;
+  }
+}
 }
 
 /* Typography Utilities */
